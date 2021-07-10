@@ -1,2 +1,3 @@
-# Chrono_Dagger
+# Chrono Dagger
+==================
  A simple weapon.
