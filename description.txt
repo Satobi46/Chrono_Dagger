@@ -1,0 +1,7 @@
+
+Chrono Dagger
+
+- Only obtainable through materials crafting in hardmode.
+- Does huge amount of damage.
+- Extra % damages on light elenents.
+

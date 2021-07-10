@@ -1,0 +1,3 @@
+displayName = Chrono Dagger
+author = Satobi
+version = 0.1
