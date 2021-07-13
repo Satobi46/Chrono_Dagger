@@ -4,17 +4,18 @@ using Terraria.ModLoader;
 
 namespace chronodagger.Projectiles.Pets
 {
-	public class ExamplePet : ModProjectile
+	public class ChronoPet : ModProjectile
 	{
 		public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Cream");
+            // DisplayName.SetDefault("Paper Airplane"); // Automatic from .lang files
+            DisplayName.SetDefault("Mini Chrono");
             Main.projFrames[projectile.type] = 4;
 			Main.projPet[projectile.type] = true;
 		}
 
 		public override void SetDefaults() {
 			projectile.CloneDefaults(ProjectileID.ZephyrFish);
-			aiType = ProjectileID.ZephyrFish
+			aiType = ProjectileID.BabySlime
 ;
         }
 
