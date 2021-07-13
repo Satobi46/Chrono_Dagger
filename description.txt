@@ -1,2 +1,2 @@
 
-ChronoDagger Satobi's Weapon/Boss mods
+Chronodagger Satobi's Weapon, NPC, and Items Addons for tmodloader.
