@@ -7,26 +7,28 @@ using Terraria.ModLoader;
 namespace chronodagger.Items.Wings
 {
     [AutoloadEquip(EquipType.Wings)]
-    public class chronowings : ModItem
+    public class calabash : ModItem
     {
         public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Wings of Chronos");
-            Tooltip.SetDefault("Mobility, Speed and Death!"
-               + "\nHard to manuever");
+            DisplayName.SetDefault("Calabash");
+            Tooltip.SetDefault("A Big bottle container for water."
+                + "\n+10 Defense"
+                + "\nGrant's Flight");
             //mod.GetTexture("chronodagger,Items,Wings,chronowings"); // <<< Does nothing...
         }
 
         public override void SetDefaults() {
             item.width = 22;
             item.height = 20;
-            item.value = 200000;
-            item.rare = ItemRarityID.Expert;
+            item.value = 10000;
+            item.rare = ItemRarityID.Orange;
             item.accessory = true;
-            item.glowMask = GlowMaskID.WingsStardust; // <<< IDK how the heck glow mask work!...
+            item.defense = 10;
+            //item.glowMask = GlowMaskID.WingsStardust; // <<< IDK how the heck glow mask work!...
         }
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            player.wingTimeMax = 200;
+            player.wingTimeMax = 120;
 
             // These can only out on Horizontal / Vertical wings. Examples Below
             //player.HorizontalWingSpeeds = 120;
@@ -35,9 +37,9 @@ namespace chronodagger.Items.Wings
         public override void HorizontalWingSpeeds(Player player, ref float speed, ref float acceleration)
         {
             base.HorizontalWingSpeeds(player, ref speed, ref acceleration);
-            speed = 9f;
-            acceleration = 20.5f;
-            Dust.NewDust(player.position, player.width, player.height, 226, 0f, 0f, 150, default, 0.5f);
+            speed = 4f;
+            acceleration = 2.5f;
+            Dust.NewDust(player.position, player.width, player.height, 33, 0f, 0f, 150, default, 0.5f); // Dust Effects.
         }
         public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising, ref float maxCanAscendMultiplier, ref float maxAscentMultiplier, ref float constantAscend)
         {
@@ -51,10 +53,10 @@ namespace chronodagger.Items.Wings
     
 		public override void AddRecipes() {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.WingsSolar, 1);
-            recipe.AddIngredient(ItemID.FlameWings, 1);
-            recipe.AddIngredient(ItemID.BetsyWings, 1);
-            recipe.AddTile(TileID.AdamantiteForge);
+            recipe.AddIngredient(ItemID.BlizzardinaBottle, 1);
+            recipe.AddIngredient(ItemID.Bottle, 1);
+            recipe.AddIngredient(ItemID.TsunamiInABottle, 1);
+            recipe.AddTile(TileID.WorkBenches);
             recipe.SetResult(this);
             recipe.AddRecipe();
         }

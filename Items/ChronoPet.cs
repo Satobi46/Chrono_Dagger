@@ -5,22 +5,22 @@ using Terraria.ModLoader;
 
 namespace chronodagger.Items
 {
-	public class ExamplePet : ModItem
+	public class ChronoPet : ModItem
 	{
 		public override void SetStaticDefaults() {
             // DisplayName and Tooltip are automatically set from the .lang files, but below is how it is done normally.
             // DisplayName.SetDefault("Paper Airplane");
             // Tooltip.SetDefault("Summons a Paper Airplane to follow aimlessly behind you");
-            DisplayName.SetDefault(" Chronos ");
-            Tooltip.SetDefault(" A great companion for your Adventures! ");
+            DisplayName.SetDefault("Summons a Mini Chrono");
+            Tooltip.SetDefault(" A dark companion for your Adventures! ");
         }
 
 		public override void SetDefaults() {
 			item.CloneDefaults(ItemID.ZephyrFish);
-			item.shoot = ModContent.ProjectileType<Projectiles.Pets.ExamplePet>();
+			item.shoot = ModContent.ProjectileType<Projectiles.Pets.ChronoPet>();
 			item.buffType = ModContent.BuffType<Buffs.ExamplePet>();
 		}
-
+    
 		public override void AddRecipes() {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.ZephyrFish, 1);

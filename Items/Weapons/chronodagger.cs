@@ -1,3 +1,5 @@
+using IL.Terraria;
+using chronodagger.Projectiles;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -7,8 +9,8 @@ namespace chronodagger.Items.Weapons
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault(" Book of Chronos ");
-            Tooltip.SetDefault("[c/FF0000:A cursed book!]");
+            DisplayName.SetDefault("The Book of Chronos");
+            Tooltip.SetDefault("[c/FF0000:A cursed book!]\n Recipe = Book of Skulls + Golden Shower + Crystal Storm");
         }
 
         public override void SetDefaults()
@@ -18,32 +20,32 @@ namespace chronodagger.Items.Weapons
             item.melee = false;
             item.ranged = true;
             item.shopSpecialCurrency = ItemID.Acorn;
-            item.crit = 30;
-            item.width = 40;
-            item.height = 40;
-            item.useTime = 20;
-            item.useAnimation = 20;
+            item.crit = 20;
+            item.width = 30;
+            item.height = 30;
+            item.useTime = 40;
+            item.useAnimation = 40;
             item.useStyle = 1;
             item.knockBack = 6;
-            item.value = 12000;
+            item.value = 200000;
             item.rare = ItemRarityID.Expert;
             item.UseSound = SoundID.Item30;
             item.autoReuse = true;
-            //item.useAmmo = ProjectileID.Daybreak; Noonononoonon
-            item.shoot = ProjectileID.MagicMissile;
-            item.shootSpeed = 20.5f;
-            item.useTime = 10;
-            item.useAnimation = 25;
+            //item.projectile = ???
+            //item.shoot = ProjectileID.Daybreak; Noonononoonon
+            //item.shoot = ProjectileID.MagicMissile;
+            item.shoot = item.shoot = ModContent.ProjectileType<ChronoBlast>();
+            item.shootSpeed = 10.5f;
             item.useStyle = ItemUseStyleID.HoldingOut;
         }
 
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.BloodyMachete, 1);
-            recipe.AddIngredient(ItemID.VampireKnives, 1);
-            recipe.AddIngredient(ItemID.GoldCoin, 20);
-            recipe.AddTile(TileID.AdamantiteForge);
+            recipe.AddIngredient(ItemID.BookofSkulls, 1);
+            recipe.AddIngredient(ItemID.GoldenShower, 1);
+            recipe.AddIngredient(ItemID.CrystalStorm, 1);
+            recipe.AddTile(TileID.Bookcases);
             recipe.SetResult(this);
             recipe.AddRecipe();
         }
